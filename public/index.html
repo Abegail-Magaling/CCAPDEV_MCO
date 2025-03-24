@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KarFind - Discover Carinderias in Sta. Rosa</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!--<img src="/img/background.jpg" class="background-image">-->
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container nav-container">
+            <img src="img/karfind.png" class="logo">
+            <a class="navbar-brand nunito-font" href="/index.html">KarFind</a>
+                
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse d-flex justify-content-between nunito-font" id="navbarNav">
+                <ul class="navbar-nav ">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="eateries.html">Discover Eateries</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li> -->
+                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                </ul>
+    
+                <a href="profile.html" class=" login-link"><i class="fa-solid fa-circle-user fa-2x"></i></a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div id="foodCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+                <div class="carousel-item active c-item" >
+                    <img src="img/home1.jpg" class="d-block w-100 rounded c-img" alt="Chicken Adobo">
+                </div>
+                <div class="carousel-item c-item">
+                    <img src="img/home2.jpg" class="d-block w-100 rounded c-img" alt="Sinigang">
+                </div>
+                <div class="carousel-item c-item">
+                    <img src="img/home3.jpg" class="d-block w-100 rounded c-img" alt="Kare-Kare">
+                </div>
+            </div>
+            <!-- <button class="carousel-control-prev" type="button" data-bs-target="#foodCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#foodCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button> -->
+
+        </div>
+
+        <div class="container mt-3 title">
+            <h1 class="roboto-font karfind"> KarFind</h1>
+            <h1 class="font-size-60 roboto-font" >Discover the Best Carinderias in Sta. Rosa</h1>
+            <p class="lead nunito-font">Affordable home-cooked meals, just a click away!</p>
+        </div>
+    </header>
+
+
+
+    <!-- Featured Eateries -->
+    <section class="container mb-5">
+        <h1 class="text-center mb-3 roboto-font">Featured Carinderias</h1>
+        <div class="row justify-content-center nunito-font">
+            <!-- Eatery 1 --> <!--Still need to replace with real shops-->
+            <div class="col-md-4">
+                <div class="card restaurant-card">
+                    <img src="img/eatery1.jpg" class="card-img-top" alt="Eatery 1">
+                    <div class="card-body">
+                        <h3 class="card-title">Lola's Lutong Bahay</h3>
+                        <p class="card-text">Serving the best home-cooked Filipino meals.</p>
+                        <a href="dennys.html" class="btn btn-primary" style="background-color: #223525; border-width: 0px;">View More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eatery 2 --> <!--Still need to replace with real shops-->
+            <div class="col-md-4">
+                <div class="card restaurant-card">
+                    <img src="img/eatery2.png" class="card-img-top" alt="Eatery 2">
+                    <div class="card-body">
+                        <h3 class="card-title">Kusina ni Aling Maria</h3>
+                        <p class="card-text">A hidden gem for delicious and affordable dishes.</p>
+                        <a href="#" class="btn btn-primary" style="background-color: #223525; border-width: 0px;">View More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eatery 3 --> <!--Still need to replace with real shops-->
+            <div class="col-md-4">
+                <div class="card restaurant-card">
+                    <img src="img/eatery3.jpg" class="card-img-top" alt="Eatery 3">
+                    <div class="card-body">
+                        <h3 class="card-title">Bahay Kubo Meals</h3>
+                        <p class="card-text">Lutong-bahay favorites at budget-friendly prices.</p>
+                        <a href="#" class="btn btn-primary" style="background-color: #223525; border-width: 0px; bottom:0px">View More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>KarFind &copy; 2025 | Discover the Best Carinderias in Sta. Rosa</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/reviewScript.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KarFind - Profile</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #223525;">
+        <div class="container">
+            <img src="/img/karfind.png" style="height: 50px; width: auto; margin-right: 8px;">
+            <a class="navbar-brand" href="/index.html" style="color: #F89A1F; font-weight: bold;">KarFind</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="eateries.html">Discover Eateries</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="reviewPage.html">Reviews</a></li> -->
+                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <div class="container mt-4">
+        <h2 class="text-center">My Profile</h2>
+        <div class="card p-4">
+            <div class="text-center">
+                <img id="profilePic" src="/img/profile.jpg" class="rounded-circle" width="150" alt="Profile Picture">
+                <input type="file" id="uploadPic" accept="image/*" style="display: none;" onchange="updateProfilePic(event)">
+                <h3 id="user-name"></h3>
+                <button class="btn btn-primary" onclick="editProfile()">Edit Profile</button>
+                <button class="btn btn-primary" onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+        <!-- User Reviews Section -->
+        <h3 class="mt-5">My Reviews</h3>
+        <div id="userReviewsContainer" class="row">
+            <!-- Sample Review 1 -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Lola's Lutong Bahay - ⭐ 5.0</h5>
+                        <p class="card-text">"Best Kare-Kare I've had! Highly recommend!"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Review 2 -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Kusina ni Aling Maria - ⭐ 4.5</h5>
+                        <p class="card-text">"Delicious food, but the waiting time was a bit long."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>KarFind &copy; 2025 | Your Food Journey Starts Here</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/profileScript.js"></script>
+    <script src="js/displayReviewsinProfile.js" defer></script>
+    <!-- <script src="js/scripts.js"></script> -->
+</body>
+</html>
