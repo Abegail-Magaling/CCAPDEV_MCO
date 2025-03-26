@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KarFind - Discover Local Eateries</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg custom-navbar">
         <div class="container nav-container">
-            <img src="/img/karfind.png" class="logo">
+            <img src="img/karfind.png" class="logo">
             <a class="navbar-brand nunito-font" href="/index.html">KarFind</a>
                 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -24,13 +25,13 @@
     
             <div class="collapse navbar-collapse d-flex justify-content-between nunito-font" id="navbarNav">
                 <ul class="navbar-nav ">
-                    <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="eateries.html">Discover Eateries</a></li>
                     <!-- <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li> -->
-                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li> -->
                 </ul>
     
-                <a href="login.html" class=" login-link">Login</a>
+                <a href="profileUpdated.html" class=" login-link"><i class="fa-solid fa-circle-user fa-2x"></i></a>
             </div>
         </div>
     </nav>
@@ -48,6 +49,8 @@
                     <option value="Filipino">Filipino</option>
                     <option value="Fusion">Fusion</option>
                     <option value="Dessert">Dessert</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Italian">Italian</option>
                 </select>
             </div>
             <div class="col-md-3">
@@ -68,102 +71,102 @@
 <div class="container mt-5">
     <div class="row eateries-container" id="eateriesList">
         <!-- Eatery 1 -->
-        <div class="col-md-3" data-cuisine="Filipino" data-price="₱">
+        <div class="col-md-3" data-cuisine="American" data-price="₱">
             <div class="card restaurant-card">
-                <img src="/img/eatery1.jpg" class="card-img-top" alt="Eatery 1">
+                <img src="img/Denny's/IMG_3.png" class="card-img-top" alt="Eatery 1">
                 <div class="card-body">
-                    <h5 class="card-title">Lola's Lutong Bahay</h5>
-                    <p class="card-text"><i class="bx bxs-map link-icon"></i> Sta. Rosa, Laguna | ⭐ 4.5</p>
-                    <p class="text-muted">₱ | Filipino Cuisine</p>
-                    <a href="dennys.html" class="btn btn-primary" style="background-color: #223525; border-width: 0px;">View More</a>
+                    <h5 class="card-title">Denny's</h5>
+                    <p class="card-text"><i class="bx bxs-map link-icon"></i>Tagaytay Rd, Santa Rosa | ⭐ 4.5</p>
+                    <p class="text-muted">₱ | American Cuisine</p>
+                    <a href="dennys.html" class="btn btn-custom">View More</a>
                 </div>
             </div>
         </div>
 
         <!-- Eatery 2 -->
-        <div class="col-md-3" data-cuisine="Fusion" data-price="₱₱">
+        <div class="col-md-3" data-cuisine="Filipino" data-price="₱₱">
             <div class="card restaurant-card">
-                <img src="/img/eatery2.png" class="card-img-top" alt="Eatery 2">
+                <img src="img/Cris/cris3.jpg" class="card-img-top" alt="Eatery 2">
                 <div class="card-body">
-                    <h5 class="card-title">Kusina ni Aling Maria</h5>
-                    <p class="card-text"><i class="bx bxs-map link-icon"></i> Balibago, Sta. Rosa | ⭐ 4.7</p>
-                    <p class="text-muted">₱₱ | Fusion Cuisine</p>
-                    <a href="eatery2.html" class="btn btn-primary" style="background-color: #223525; border-width: 0px;">View More</a>
+                    <h5 class="card-title">Crisostomo</h5>
+                    <p class="card-text"><i class="bx bxs-map link-icon"></i> Nuvali, Santa Rosa City | ⭐ 4.7</p>
+                    <p class="text-muted">₱₱ | Filipino Cuisine</p>
+                    <a href="cris.html" class="btn btn-custom">View More</a>
                 </div>
             </div>
         </div>
 
         <!-- Eatery 3 -->
-        <div class="col-md-3" data-cuisine="Dessert" data-price="₱₱₱">
+        <div class="col-md-3" data-cuisine="Japanese" data-price="₱₱₱">
             <div class="card restaurant-card">
-                <img src="/img/eatery3.jpg" class="card-img-top" alt="Eatery 3">
+                <img src="img/Ippon/ippon3.jpg" class="card-img-top" alt="Eatery 3">
                 <div class="card-body">
-                    <h5 class="card-title">Bahay Kubo Meals</h5>
-                    <p class="card-text"><i class="bx bxs-map link-icon"></i> Tagapo, Sta. Rosa | ⭐ 4.3</p>
-                    <p class="text-muted">₱₱₱ | Dessert</p>
-                    <a href="eatery3.html" class="btn btn-primary" style="background-color: #223525; border-width: 0px;">View More</a>
+                    <h5 class="card-title">Ipponyari</h5>
+                    <p class="card-text"><i class="bx bxs-map link-icon"></i> Tagaytay Road, Laguna | ⭐ 4.3</p>
+                    <p class="text-muted">₱₱₱ | Japanese</p>
+                    <a href="ippon.html" class="btn btn-custom">View More</a>
                 </div>
             </div>
         </div>
 
         <!-- Eatery 4 -->
-        <div class="col-md-3" data-cuisine="Filipino" data-price="₱₱">
+        <div class="col-md-3" data-cuisine="Filipino" data-price="₱">
             <div class="card restaurant-card">
-                <img src="/img/eatery4.jpg" class="card-img-top" alt="Eatery 4">
+                <img src="img/Kanin Club/kanin 4.jpg" class="card-img-top" alt="Eatery 4">
                 <div class="card-body">
-                    <h5 class="card-title">Tita's Carinderia</h5>
-                    <p class="card-text"><i class="bx bxs-map link-icon"></i> Market Area, Sta. Rosa | ⭐ 4.2</p>
-                    <p class="text-muted">₱₱ | Filipino Cuisine</p>
-                    <a href="eatery4.html" class="btn btn-primary" style="background-color: #223525; border-width: 0px;">View More</a>
+                    <h5 class="card-title">Kanin Club</h5>
+                    <p class="card-text"><i class="bx bxs-map link-icon"></i> Paseo de Santa Rosa | ⭐ 4.2</p>
+                    <p class="text-muted">₱ | Filipino Cuisine</p>
+                    <a href="kaninclub.html" class="btn btn-custom">View More</a>
                 </div>
             </div>
         </div>
 
         <!-- Eatery 5 -->
-        <div class="col-md-3" data-cuisine="Fusion" data-price="₱₱₱">
+        <div class="col-md-3" data-cuisine="Italian" data-price="₱₱₱">
             <div class="card restaurant-card">
-                <img src="/img/eatery5.jpg" class="card-img-top" alt="Eatery 5">
+                <img src="img/Mama Lou_s/mama2.jpg" class="card-img-top" alt="Eatery 5">
                 <div class="card-body">
-                    <h5 class="card-title">Chef's Secret Spot</h5>
-                    <p class="card-text"><i class="bx bxs-map link-icon"></i> Balibago, Sta. Rosa | ⭐ 4.8</p>
-                    <p class="text-muted">₱₱₱ | Fusion Cuisine</p>
-                    <a href="eatery5.html" class="btn btn-primary" style="background-color: #223525; border-width: 0px;">View More</a>
+                    <h5 class="card-title">Mama Lou's Italian Kitchen</h5>
+                    <p class="card-text"><i class="bx bxs-map link-icon"></i> Solenad 2, NUVALI | ⭐ 4.8</p>
+                    <p class="text-muted">₱₱₱ | Italian Cuisine</p>
+                    <a href="mamalou.html" class="btn btn-custom">View More</a>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-3" data-cuisine="Dessert" data-price="₱₱₱">
+        <div class="col-md-3" data-cuisine="Dessert" data-price="₱">
             <div class="card restaurant-card">
-                <img src="/img/eatery6.jpg" class="card-img-top" alt="Eatery 6">
+                <img src="img/Nono_s/nono3.jpg" class="card-img-top" alt="Eatery 6">
                 <div class="card-body">
-                    <h5 class="card-title">Halo-Halo Delight</h5>
-                    <p class="card-text"><i class="bx bxs-map link-icon"></i> Nuvali, Sta. Rosa | ⭐ 4.8</p>
-                    <p class="text-muted">₱₱₱ | Dessert</p>
-                    <a href="eatery6.html" class="btn btn-primary" style="background-color: #223525; border-width: 0px;">View More</a>
+                    <h5 class="card-title">Nono's</h5>
+                    <p class="card-text"><i class="bx bxs-map link-icon"></i> Solenad 3, Sta. Rosa | ⭐ 4.8</p>
+                    <p class="text-muted">₱ | Dessert</p>
+                    <a href="nono.html" class="btn btn-custom">View More</a>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-3" data-cuisine="Dessert" data-price="₱₱₱">
+        <div class="col-md-3" data-cuisine="Vietnamese" data-price="₱₱₱">
             <div class="card restaurant-card">
-                <img src="/img/eatery6.jpg" class="card-img-top" alt="Eatery 6">
+                <img src="img/Pho/pho4.jpg" class="card-img-top" alt="Eatery 6">
                 <div class="card-body">
-                    <h5 class="card-title">Halo-Halo Delight</h5>
-                    <p class="card-text"><i class="bx bxs-map link-icon"></i> Nuvali, Sta. Rosa | ⭐ 4.8</p>
-                    <p class="text-muted">₱₱₱ | Dessert</p>
-                    <a href="eatery7.html" class="btn btn-primary" style="background-color: #223525; border-width: 0px;">View More</a>
+                    <h5 class="card-title">Pho Saigon</h5>
+                    <p class="card-text"><i class="bx bxs-map link-icon"></i> Embarcadero Dr Unit 31 | ⭐ 4.8</p>
+                    <p class="text-muted">₱₱₱ | Vietnamese</p>
+                    <a href="pho.html" class="btn btn-custom">View More</a>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-3" data-cuisine="Dessert" data-price="₱₱₱">
+        <div class="col-md-3" data-cuisine="Italian" data-price="₱₱₱">
             <div class="card restaurant-card">
-                <img src="/img/eatery6.jpg" class="card-img-top" alt="Eatery 6">
+                <img src="img/Shrimp/shrimp3.jpg" class="card-img-top" alt="Eatery 6">
                 <div class="card-body">
-                    <h5 class="card-title">Halo-Halo Delight</h5>
-                    <p class="card-text"><i class="bx bxs-map link-icon"></i> Nuvali, Sta. Rosa | ⭐ 4.8</p>
-                    <p class="text-muted">₱₱₱ | Dessert</p>
-                    <a href="eatery8.html" class="btn btn-primary" style="background-color: #223525; border-width: 0px;">View More</a>
+                    <h5 class="card-title">Shrimp Bucket</h5>
+                    <p class="card-text"><i class="bx bxs-map link-icon"></i> Solenad 3, Nuvali | ⭐ 4.8</p>
+                    <p class="text-muted">₱₱₱ | Italian</p>
+                    <a href="shrimp.html" class="btn btn-custom">View More</a>
                 </div>
             </div>
         </div>

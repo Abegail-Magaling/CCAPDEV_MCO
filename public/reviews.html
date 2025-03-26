@@ -12,19 +12,24 @@
     <img src="/img/background.jpg" style="height: auto; width: 100%; z-index: -1; left: 0; top: 0; position: absolute;">
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #223525;">
-        <div class="container">
-            <img src="/img/karfind.png" style="height: 50px; width: auto; margin-right: 8px;">
-            <a class="navbar-brand" href="/index.html" style="color: #F89A1F; font-weight: bold;">KarFind</a>
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container nav-container">
+            <img src="img/karfind.png" class="logo">
+            <a class="navbar-brand nunito-font" href="/index.html">KarFind</a>
+                
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+    
+            <div class="collapse navbar-collapse d-flex justify-content-between nunito-font" id="navbarNav">
+                <ul class="navbar-nav ">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="eateries.html">Discover Eateries</a></li>
                     <!-- <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li> -->
-                    <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li> -->
                 </ul>
+    
+                <a href="profileUpdated.html" class=" login-link"><i class="fa-solid fa-circle-user fa-2x"></i></a>
             </div>
         </div>
     </nav>

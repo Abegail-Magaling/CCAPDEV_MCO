@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KarFind - Profile</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container nav-container">
+            <img src="img/karfind.png" class="logo">
+            <a class="navbar-brand nunito-font" href="/index.html">KarFind</a>
+                
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse d-flex justify-content-between nunito-font" id="navbarNav">
+                <ul class="navbar-nav ">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="eateries.html">Discover Eateries</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li> -->
+                    <!-- <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li> -->
+                </ul>
+    
+                <a href="profileUpdated.html" class=" login-link"><i class="fa-solid fa-circle-user fa-2x"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container pt-10">
+    <div class="row">
+        <!-- Profile Section -->
+        <div class="col-md-4 roboto-font">
+            <div class="card p-4 text-center border align-items-center" style="border-radius: 10px; border: 2px solid #ccc; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+                <img src="img/profile.jpg" class="profile-img" alt="Profile Picture">
+                <div class="profile-info">
+                    <h2 id="user-name"></h2>
+                    <p>"Foodie exploring the best carinderias!"</p>
+                    <a href="editprofileupdated.html" class="btn btn-custom" onclick="editProfile()">Edit Profile</a>
+                    <button class="btn btn-custom" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="col-md-8">
+            <h3>My Reviews</h3>
+            <div id="userReviewsContainer">
+                <div class="card bg-white text-dark mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Lola's Lutong Bahay</h5>
+                        <div class="stars">★★★★★</div>
+                        <p class="card-text">"Best Kare-Kare I've had! Highly recommend!"</p>
+                    </div>
+                </div>
+                <div class="card bg-white text-dark mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Kusina ni Aling Maria</h5>
+                        <div class="stars">★★★★☆</div>
+                        <p class="card-text">"Delicious food, but the waiting time was a bit long."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- <footer class="footer">
+        <p>KarFind &copy; 2025 | Discover the Best Carinderias in Sta. Rosa</p>
+    </footer> -->
+
+    <script src="js/profileScript.js"></script>
+    <script src="js/displayReviewsinProfile.js" defer></script>
+</body>
+</html>

@@ -13,7 +13,7 @@ router.get("/signup", (req, res)=>{
 });
 
 router.get("/profile", (req, res)=>{
-    res.sendFile(path.join(__dirname, "../public/profile.html"));
+    res.sendFile(path.join(__dirname, "../public/profileUpdated.html"));
 });
 
 router.get("/login", (req, res)=>{
