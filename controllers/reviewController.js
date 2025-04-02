@@ -3,9 +3,27 @@ const User = require("../models/User");
 
 const getReviews = async (req, res) => {
     console.log("Session data:", req.session);
+
     try {
         const reviews = await Review.find().populate("user", "_id name").select("title content rating user createdAt");
         console.log("Fetched reviews:", reviews);
+        res.json(reviews);
+        
+    } catch (error) {
+        console.error("Error fetching reviews:", error);
+        res.status(500).json({ error: "Server error" });
+    }
+}
+
+const getRestaurantReviews = async (req, res) => {
+    console.log("Session data:", req.session);
+
+    const restaurantId = req.params.restaurantId;
+
+    try {
+        const reviews = await Review.find({restaurant: restaurantId}).populate("user", "_id name").select("title content rating user createdAt");
+        //console.log("Fetched reviews:", reviews);
+        console.log("Fetched reviews for restaurant:", restaurantId, reviews);
         res.json(reviews);
         
     } catch (error) {
@@ -26,6 +44,7 @@ const createReview = async (req, res) => {
             rating: req.body.rating,
             user: req.session.user._id,
             userName: req.session.user.name,
+            restaurant: req.body.restaurantId,
             createdAt: new Date()
         });
 
@@ -65,5 +84,5 @@ const deleteReview = async (req, res) => {
     }
 };
 
-module.exports = { createReview, getReviews, deleteReview };
+module.exports = { createReview, getReviews, deleteReview, getRestaurantReviews };
 

@@ -4,6 +4,7 @@ const path = require("path");
 const authRoutes = require("./routes/authRoutes")
 const apiRoutes = require("./routes/apiRoutes");
 const reviewRoutes = require("./routes/reviewRoutes");
+const restoRoutes = require("./routes/restoRoutes");
 const session  = require("express-session");
 
 const app = express();
@@ -25,6 +26,7 @@ app.set("views", path.join(__dirname, "views"));
  
 app.use("/api", apiRoutes);
 app.use("/api", reviewRoutes);
+app.use("/", restoRoutes);
 app.use("/", authRoutes);
 app.use(express.static(path.join(__dirname, "public")));
 

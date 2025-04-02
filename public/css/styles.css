@@ -274,6 +274,10 @@ body {
     cursor: pointer;
 }
 
+.all-photos-container {
+    position: relative;
+}
+
 .overlay {
     position: absolute;
     bottom: 0;
@@ -284,6 +288,7 @@ body {
     font-size: 12px;
     cursor: pointer;
     border-bottom-right-radius: 5px;
+    z-index: 10;
 }
 
 /* Modal Background */

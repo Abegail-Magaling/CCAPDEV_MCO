@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", async () => {
   try {
+
+    const restaurantId = window.location.pathname.split('/')[2]; 
+
     const userResponse = await fetch("/api/profile", { credentials: "include" });
         let currentUser = null;
         
@@ -10,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         console.log("Current logged-in user:", currentUser);
 
-    const response = await fetch("/api/reviews");
+    const response = await fetch(`/api/reviews/${restaurantId}`);
     if (!response.ok) throw new Error("Failed to fetch reviews");
 
     const reviews = await response.json();
@@ -26,13 +29,16 @@ async function submitReview() {
   const title = document.getElementById("reviewTitle").value.trim();
   const content = document.getElementById("reviewContent").value.trim();
   const rating = document.getElementById("reviewRating").value;
+  
+  const restaurantId = window.location.pathname.split('/')[2];
+  console.log("Extracted restaurantId:", restaurantId);
 
   if (!title || !content) {
     alert("Please fill out all fields!");
     return;
   }
 
-  const reviewData = { title, content, rating };
+  const reviewData = { title, content, rating, restaurantId };
 
   try {
     const response = await fetch("/api/reviews", {

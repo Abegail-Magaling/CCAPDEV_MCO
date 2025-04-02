@@ -39,6 +39,7 @@ const login = async(req, res) => {
             email: check.email,
             password: check.password};
         res.redirect("/profile");
+        //res.redirect("/eateries");
 
     } catch (error) {
         console.error("Login Error:", error); // Log the actual error
