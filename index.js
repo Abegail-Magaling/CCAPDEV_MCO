@@ -9,6 +9,8 @@ const session  = require("express-session");
 
 const app = express();
 
+require('./db');
+
 app.use(session({
     secret: "mcokarfindapdev",
     resave: false,
