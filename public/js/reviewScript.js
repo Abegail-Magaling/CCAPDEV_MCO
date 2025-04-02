@@ -168,6 +168,8 @@ async function deleteReview(button, reviewId) {
 
 async function editReview(button, reviewId) {
     const reviewBox = button.closest(".review-box");
+
+    const userName = reviewBox.querySelector(".name-user strong")?.textContent || "Unknown User";
     
     // Get current review values
     const titleElem = reviewBox.querySelector(".customer-comment-title strong");
@@ -183,7 +185,7 @@ async function editReview(button, reviewId) {
         <div class="box-top">
             <div class="profile">
                 <div class="name-user">
-                    <strong>Editing Review</strong>
+                    <strong>${userName}</strong>
                 </div>
             </div>
         </div>
@@ -210,6 +212,8 @@ async function editReview(button, reviewId) {
 
 async function saveEditedReview(reviewId, button) {
     const reviewBox = button.closest(".review-box");
+
+    const userName = reviewBox.querySelector(".name-user strong")?.textContent || "Unknown User";
 
     // Get updated values
     const updatedTitle = document.getElementById("editTitle").value.trim();
@@ -245,7 +249,30 @@ async function saveEditedReview(reviewId, button) {
         const updatedReview = await response.json();
 
         // Refresh review display
-        displayNewReview(updatedReview.review, updatedReview.review.user._id);
+        reviewBox.innerHTML = `
+            <div class="box-top">
+                <div class="profile">
+                    <div class="name-user">
+                        <strong>${userName}</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="box-bottom">
+                <div class="reviews">
+                    <div class="rating">${"⭐".repeat(updatedReview.review.rating)}${"☆".repeat(5 - updatedReview.review.rating)}</div>
+                </div>
+                <div class="customer-comment-title">
+                    <strong>${updatedReview.review.title}</strong>
+                </div>
+                <div class="customer-comment-p">
+                    <p>${updatedReview.review.content}</p>
+                </div>
+                <div class="review-actions mt-2">
+                    <button class="btn btn-custom me-1" onclick="editReview(this, '${reviewId}')"><i class="fa-solid fa-pen"></i> Edit</button>
+                    <button class="btn btn-custom" onclick="deleteReview(this, '${reviewId}')"><i class="fa-solid fa-trash"></i> Delete</button>
+                </div>
+            </div>
+        `;
     } catch (error) {
         console.error("Error updating review:", error);
         alert("Failed to update review.");

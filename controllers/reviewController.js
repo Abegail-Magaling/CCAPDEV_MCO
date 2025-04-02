@@ -15,6 +15,39 @@ const getReviews = async (req, res) => {
     }
 }
 
+const updateReview = async (req, res) => {
+    if (!req.session.user) {
+        return res.status(401).json({ error: "User not logged in" });
+    }
+
+    try {
+        const review = await Review.findById(req.params.id);
+        if (!review) {
+            return res.status(404).json({ error: "Review not found" });
+        }
+
+        // Check if the logged-in user is the owner of the review
+        if (review.user.toString() !== req.session.user._id) {
+            return res.status(403).json({ error: "You can only edit your own reviews!" });
+        }
+
+        // Update review fields
+        review.title = req.body.title || review.title;
+        review.content = req.body.content || review.content;
+        review.rating = req.body.rating || review.rating;
+        review.updatedAt = new Date();
+
+        const updatedReview = await review.save();
+        const populatedReview = await updatedReview.populate("user", "name");
+
+        res.json({ message: "Review updated successfully", review: populatedReview });
+
+    } catch (error) {
+        console.error("Error updating review:", error);
+        res.status(500).json({ error: "Server error" });
+    }
+};
+
 const getRestaurantReviews = async (req, res) => {
     console.log("Session data:", req.session);
 
@@ -84,5 +117,5 @@ const deleteReview = async (req, res) => {
     }
 };
 
-module.exports = { createReview, getReviews, deleteReview, getRestaurantReviews };
+module.exports = { createReview, getReviews, deleteReview, getRestaurantReviews, updateReview };
 
