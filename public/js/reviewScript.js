@@ -110,10 +110,10 @@ async function displayNewReview(review, currentUser) {
             ${
                 isOwner
                     ? `<div class="review-actions">
-                        <button class="btn btn-sm btn-outline-primary me-2" onclick="editReview(this, '${review._id}')">
+                        <button class="btn btn-custom me-1" onclick="editReview(this, '${review._id}')">
                             <i class="fa-solid fa-pen"></i> Edit
                         </button>
-                        <button class="btn btn-sm btn-outline-danger" onclick="deleteReview(this, '${review._id}')">
+                        <button class="btn btn-custom" onclick="deleteReview(this, '${review._id}')">
                             <i class="fa-solid fa-trash"></i> Delete
                         </button>
                     </div>`
@@ -164,4 +164,119 @@ async function deleteReview(button, reviewId) {
         console.error("Error deleting review:", error);
         alert("Failed to delete review.");
     }
+}
+
+async function editReview(button, reviewId) {
+    const reviewBox = button.closest(".review-box");
+    
+    // Get current review values
+    const titleElem = reviewBox.querySelector(".customer-comment-title strong");
+    const contentElem = reviewBox.querySelector(".customer-comment-p p");
+    const ratingElem = reviewBox.querySelector(".rating");
+
+    const currentTitle = titleElem.textContent;
+    const currentContent = contentElem.textContent;
+    const currentRating = ratingElem.textContent.split("⭐").length - 1; 
+
+    // Replace content with editable input fields
+    reviewBox.innerHTML = `
+        <div class="box-top">
+            <div class="profile">
+                <div class="name-user">
+                    <strong>Editing Review</strong>
+                </div>
+            </div>
+        </div>
+        <div class="box-bottom">
+            <div class="reviews">
+                <label for="editRating">Rating:</label>
+                <input type="number" id="editRating" class="form-control" min="1" max="5" value="${currentRating}">
+            </div>
+            <div class="customer-comment-title">
+                <label for="editTitle">Title:</label>
+                <input type="text" id="editTitle" class="form-control" value="${currentTitle}">
+            </div>
+            <div class="customer-comment-p">
+                <label for="editContent">Content:</label>
+                <textarea id="editContent" class="form-control">${currentContent}</textarea>
+            </div>
+            <div class="review-actions mt-2">
+                <button class="btn btn-success me-1" onclick="saveEditedReview('${reviewId}', this)">Save</button>
+                <button class="btn btn-secondary" onclick="cancelEditReview('${reviewId}', this, '${currentTitle}', '${currentContent}', '${currentRating}')">Cancel</button>
+            </div>
+        </div>
+    `;
+}
+
+async function saveEditedReview(reviewId, button) {
+    const reviewBox = button.closest(".review-box");
+
+    // Get updated values
+    const updatedTitle = document.getElementById("editTitle").value.trim();
+    const updatedContent = document.getElementById("editContent").value.trim();
+    const updatedRating = document.getElementById("editRating").value;
+
+    if (!updatedTitle || !updatedContent) {
+        alert("Please fill out all fields!");
+        return;
+    }
+
+    const updatedData = {
+        title: updatedTitle,
+        content: updatedContent,
+        rating: updatedRating,
+    };
+
+    try {
+        const response = await fetch(`/api/reviews/${reviewId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify(updatedData),
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to update review");
+        }
+
+        // Fetch updated data from the server
+        const updatedReview = await response.json();
+
+        // Refresh review display
+        displayNewReview(updatedReview.review, updatedReview.review.user._id);
+    } catch (error) {
+        console.error("Error updating review:", error);
+        alert("Failed to update review.");
+    }
+}
+
+function cancelEditReview(reviewId, button, oldTitle, oldContent, oldRating) {
+    const reviewBox = button.closest(".review-box");
+
+    reviewBox.innerHTML = `
+        <div class="box-top">
+            <div class="profile">
+                <div class="name-user">
+                    <strong>Review</strong>
+                </div>
+            </div>
+        </div>
+        <div class="box-bottom">
+            <div class="reviews">
+                <div class="rating">${"⭐".repeat(oldRating)}${"☆".repeat(5 - oldRating)}</div>
+            </div>
+            <div class="customer-comment-title">
+                <strong>${oldTitle}</strong>
+            </div>
+            <div class="customer-comment-p">
+                <p>${oldContent}</p>
+            </div>
+            <div class="review-actions mt-2">
+                <button class="btn btn-custom me-1" onclick="editReview(this, '${reviewId}')"><i class="fa-solid fa-pen"></i> Edit</button>
+                <button class="btn btn-custom" onclick="deleteReview(this, '${reviewId}')"><i class="fa-solid fa-trash"></i> Delete</button>
+            </div>
+        </div>
+    `;
 }

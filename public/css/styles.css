@@ -368,6 +368,7 @@ body {
     padding: 10px 20px;
     border-radius: 15px;
     transition: 0.3s;
+    height: 40px;
 }
 .btn-custom:hover {
     background: #f8a11f !important;

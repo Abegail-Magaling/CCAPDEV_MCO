@@ -23,7 +23,8 @@ const seedRestaurants = async () => {
                 contact: "(+63)917 524 5058",
                 googleMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61876.44007035736!2d120.99141973124998!3d14.237027399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7d5797d76b3b%3A0x2e8894fb1f0f2f2d!2sNono's!5e0!3m2!1sen!2sph!4v1742448553938!5m2!1sen!2sph",
                 cuisine: "Dessert",
-                coverPage: "img/Nono_s/nono3.jpg"
+                coverPage: "img/Nono_s/nono3.jpg",
+                restoPhotos: ["/img/Nono_s/nono1.jpg", "/img/Nono_s/nono2.jpg", "/img/Nono_s/nono3.jpg", "/img/Nono_s/nono4.jpg"]
             },
             {
                 name: "Kanin Club",
@@ -33,7 +34,8 @@ const seedRestaurants = async () => {
                 contact: "(+63) 49 544 0332",
                 googleMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3867.0794612076907!2d121.06127527379586!3d14.248586885600652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7d476cae0995%3A0x757ee3eed43e86be!2sKanin%20Club!5e0!3m2!1sen!2sph!4v1742448620006!5m2!1sen!2sph",
                 cuisine: "Filipino Cuisine",
-                coverPage: "img/Kanin Club/kanin 4.jpg"
+                coverPage: "img/Kanin Club/kanin 4.jpg",
+                restoPhotos: ["/img/Kanin Club/kanin.jpg", "/img/Kanin Club/kanin1.jpg", "/img/Kanin Club/kanin3.jpg", "/img/Kanin Club/kanin 4.jpg"]
             },
             {
                 name: "Mama Lou's Italian Kitchen",
@@ -43,7 +45,8 @@ const seedRestaurants = async () => {
                 contact: "(+63) 49302 0752",
                 googleMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123746.45640804818!2d120.98144703243898!3d14.24874432704341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7d1805436a0f%3A0xc599671828836962!2sMama%20Lou&#39;s%20Italian%20Kitchen%20-%20Ayala%20Malls%2C%20Solenad!5e0!3m2!1sen!2sph!4v1742448672819!5m2!1sen!2sph",
                 cuisine: "Italian Cuisine",
-                coverPage: "img/Mama Lou_s/mama2.jpg"
+                coverPage: "img/Mama Lou_s/mama2.jpg",
+                restoPhotos: ["/img/Mama Lou_s/mama1.jpg", "/img/Mama Lou_s/mama2.jpg", "/img/Mama Lou_s/mama3.jpg", "/img/Mama Lou_s/mama4.jpg"]
             },
             {
                 name: "Ipponyari",
@@ -53,7 +56,8 @@ const seedRestaurants = async () => {
                 contact: "(+63) 49 541 1634",
                 googleMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3867.0673314058154!2d121.0602033737958!3d14.249294585583714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7d473064774b%3A0x1c5811e56d7d3d8e!2sIpponyari%20Santa%20Rosa!5e0!3m2!1sen!2sph!4v1742448807799!5m2!1sen!2sph",
                 cuisine: "Japanese Cuisine",
-                coverPage: "img/Ippon/ippon3.jpg"
+                coverPage: "img/Ippon/ippon3.jpg",
+                restoPhotos: ["/img/Ippon/ippon1.jpg", "/img/Ippon/ippon2.jpg", "/img/Ippon/ippon3.jpg", "/img/Ippon/ippon4.jpg"]
             },
             {
                 name: "Crisostomo",
@@ -63,7 +67,8 @@ const seedRestaurants = async () => {
                 contact: "(+63) 917 326 4762",
                 googleMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d494548.99510633777!2d120.70442237546733!3d14.446515777775566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7d3d70665e0f%3A0x34932c2e9efa6b65!2sCrisostomo%20-%20Ayala%20Malls%20Solenad!5e0!3m2!1sen!2sph!4v1742449035380!5m2!1sen!2sph",
                 cuisine: "Filipino Cuisine",
-                coverPage: "img/Cris/cris3.jpg"
+                coverPage: "img/Cris/cris3.jpg",
+                restoPhotos: ["/img/Cris/cris1.jpg", "/img/Cris/cris2.jpg", "/img/Cris/cris3.jpg", "/img/Cris/cris4.jpg"]
             },
             {
                 name: "Shrimp Bucket",
@@ -73,7 +78,8 @@ const seedRestaurants = async () => {
                 contact: "(+63) 49 544 4406",
                 googleMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3867.269719166469!2d121.0547560737956!3d14.237481985866312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7d22b10b5f0b%3A0x3a560b954270af0f!2sShrimp%20Bucket%20Nuvali!5e0!3m2!1sen!2sph!4v1742449075460!5m2!1sen!2sph",
                 cuisine: "Italian Cuisine",
-                coverPage: "img/Shrimp/shrimp3.jpg"
+                coverPage: "img/Shrimp/shrimp3.jpg",
+                restoPhotos: ["/img/Shrimp/shrimp1.jpg", "/img/Shrimp/shrimp2.jpg", "/img/Shrimp/shrimp3.jpg", "/img/Shrimp/shrimp4.jpg"]
             },
             {
                 name: "Pho Saigon",
@@ -83,7 +89,8 @@ const seedRestaurants = async () => {
                 contact: "(+63) 995 132 8276",
                 googleMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3867.0982229311244!2d121.06124067379577!3d14.247492185626836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7dba552565b5%3A0x1e0cd0d0b189bfb1!2sPho%20Saigon%20Vietnamese%20Restaurant!5e0!3m2!1sen!2sph!4v1742449118119!5m2!1sen!2sph",
                 cuisine: "Vietnamese Cuisine",
-                coverPage: "img/Pho/pho4.jpg"
+                coverPage: "img/Pho/pho4.jpg",
+                restoPhotos: ["/img/Pho/pho1.jpg", "/img/Pho/pho2.jpg", "/img/Pho/pho3.jpg", "/img/Pho/pho4.jpg"]
             }
         ]);
 
