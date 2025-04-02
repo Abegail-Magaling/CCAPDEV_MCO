@@ -13,7 +13,7 @@ app.use(session({
     secret: "mcokarfindapdev",
     resave: false,
     saveUninitialized: false,
-    cookie: {secure : false}
+    cookie: {secure : false, maxAge: 7 * 24 * 60 * 60 * 1000}
 }))
 
 //convert data to json

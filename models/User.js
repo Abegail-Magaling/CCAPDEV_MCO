@@ -20,8 +20,11 @@ const UserSchema = new Schema({
         type: SchemaTypes.String,
         enum: ["user", "admin"],
         default: "user"
+    },
+    profilePicture : {
+        type: SchemaTypes.String,
+        default: "/img/profile.jpg"
     }
-
 });
 
 const User = new mongoose.model("users", UserSchema);

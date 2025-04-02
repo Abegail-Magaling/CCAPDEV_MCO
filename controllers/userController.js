@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
 
 const getUser = async (req, res) => {
     if (!req.session.user) {
@@ -26,9 +27,24 @@ const updateUser = async (req, res) => {
 
     try {
         const {name, email, password} = req.body;
+
+        //added
+        const updates = { name, email };
+
+        //hash the new password entered
+        if(password) {
+            const hashedPassword = await bcrypt.hash(password, 10);
+            updates.password = hashedPassword;
+        }
+
+        //handle profile picture changes
+        if(req.file){
+            updates.profilePicture = `/uploads/${req.file.filename}`;
+        }
+
         const updatedUser = await User.findByIdAndUpdate(req.session.user._id, 
-            {name, email, password}, 
-            {new : true}).select("name email password");
+            updates, 
+            {new : true}).select("name email profilePicture");
 
         console.log(updatedUser);
 
@@ -38,9 +54,15 @@ const updateUser = async (req, res) => {
 
         req.session.user.name = updatedUser.name;
         req.session.user.email = updatedUser.email;
-        req.session.user.password = updatedUser.password;
 
-        res.json({ message: "Profile updated successfully!", user: updatedUser });
+        if(password) {
+            req.session.user.password = updatedUser.password;
+        }
+
+        if(req.file){
+            req.session.user.profilePicture = updatedUser.profilePicture;
+        }
+        res.json({ message: "Profile updated successfully!", user: updatedUser, profilePicture: updatedUser.profilePicture });
     }
     catch (error) {
         console.error("Error in updateUser:", error);
