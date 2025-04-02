@@ -9,7 +9,7 @@ const session  = require("express-session");
 
 const app = express();
 
-require('./db');
+require('./config/db');
 
 app.use(session({
     secret: "mcokarfindapdev",
