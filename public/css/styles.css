@@ -212,7 +212,10 @@ body {
     background-color: #ffffff;
     padding:20px;
     margin:15px;
-    height: 300px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;;
 }
 
 .reviews{

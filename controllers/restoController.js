@@ -50,7 +50,9 @@ const getAllRestaurants = async (req, res) => {
                 message: 'No Restaurant Available'
             })
         }
-        res.render("eateries", { restaurants });
+
+        const userRole = req.session.user ? req.session.user.userType : null;
+        res.render("eateries", { restaurants, userRole });
     }
     catch(error){
         console.error("error fetching restos", error);
@@ -79,5 +81,27 @@ const getRestaurantsById = async (req, res) => {
     }
 }
 
+const deleteRestaurants = async (req, res) => {
+    try{
+        if (req.body.action === 'delete') {
+            const restaurantID = req.params.id;
 
-module.exports = { getAllRestaurants, getRestaurantsById, addRestaurant, isAdmin};
+            const deletedRestaurant = await Restaurants.findByIdAndDelete(restaurantID);
+
+            if (!deletedRestaurant) {
+                return res.status(404).json({ error: "Restaurant not found" });
+            }
+
+            res.redirect("/eateries");
+        } else {
+            res.status(400).json({ error: "Invalid action" });
+        }
+    }
+    catch(error){
+        console.error("Error deleting restaurant:", error);
+        res.status(500).json({ error: "Server error" });
+    }
+}
+
+
+module.exports = { getAllRestaurants, getRestaurantsById, addRestaurant, isAdmin, deleteRestaurants};
