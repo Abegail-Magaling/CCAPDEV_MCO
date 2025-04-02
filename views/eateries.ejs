@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KarFind - Discover Local Eateries</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container nav-container">
+            <img src="img/karfind.png" class="logo">
+            <a class="navbar-brand nunito-font" href="/index.html">KarFind</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-flex justify-content-between nunito-font" id="navbarNav">
+                <ul class="navbar-nav ">
+                    <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/eateries">Discover Eateries</a></li>
+                    <li class="nav-item"><a id="addRestaurantLink" class="nav-link" href="/addRestaurant.html">Add Restaurant</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li> -->
+                </ul>
+
+                <a href="profileUpdated.html" class=" login-link"><i class="fa-solid fa-circle-user fa-2x"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search and Filter Section -->
+    <div class="container pt-10">
+        <h1 class="text-center roboto-font font-size-60">Find the Best Carinderias in Sta. Rosa</h1>
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search by name...">
+            </div>
+            <div class="col-md-3">
+                <select id="filterCuisine" class="form-select">
+                    <option value="">All Cuisines</option>
+                    <option value="Filipino">Filipino</option>
+                    <option value="Fusion">Fusion</option>
+                    <option value="Dessert">Dessert</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Italian">Italian</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select id="filterPrice" class="form-select">
+                    <option value="">All Price Ranges</option>
+                    <option value="₱">₱ (Budget)</option>
+                    <option value="₱₱">₱₱ (Mid-range)</option>
+                    <option value="₱₱₱">₱₱₱ (Expensive)</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary w-100" onclick="filterEateries()"
+                    style="background: #F89A1F; border-width: 0px; color: #000000;">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Eateries List -->
+    <div class="container mt-5">
+        <div class="row eateries-container">
+            <% if(restaurants.length> 0) { %>
+                <% restaurants.forEach(restaurant => { %>
+                    <div class="col-md-3" data-cuisine="<%= restaurant.cuisine %>" data-price="₱">
+                        <div class="card restaurant-card">
+                            <img src="<%= restaurant.coverPage %>" class="card-img-top" alt="<%= restaurant.name %>">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= restaurant.name %></h5>
+                                <p class="card-text"><i class="bx bxs-map link-icon"></i><%= restaurant.address %></p>
+                                <p class="text-muted"><%= restaurant.cuisine %> | ⭐ <%= restaurant.rating %></p>
+                                <a href="/restaurants/<%= restaurant._id %>" class="btn btn-custom">View More</a>
+                                <% if (userRole === 'admin') { %> <!-- Check if user is admin -->
+                                    <form action="/restaurants/<%= restaurant._id %>/delete" method="POST" style="display:inline;">
+                                        <input type="hidden" name="action" value="delete">
+                                        <button type="submit" class="btn btn-custom" onclick="return confirm('Are you sure you want to delete this restaurant?');">
+                                            Delete
+                                        </button>
+                                    </form>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p class="text-center">No restaurants found.</p>
+            <% } %>
+        </div>
+    </div>
+
+                    
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+                    <script src="js/scripts.js"></script>
+                    <script src="js/profileScript.js"></script>
+</body>
+</html>

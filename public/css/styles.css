@@ -1,7 +1,9 @@
 body {
     /*background-color: #FFF1D0 !important;;  Change this to any color you want */
     background: #FFF1D0 !important;
-
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }  
 
 .roboto-font{
@@ -108,18 +110,19 @@ body {
     text-align: center;
     flex-direction: column;
 }
-
-/* Profile Picture */
-#profilePic {
-    cursor: pointer;
-    border: 4px solid #ccc;
-    padding: 5px;
-    transition: transform 0.3s;
+.profile-img {
+    border: 5px solid #f8a11f;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
 }
-
-#profilePic:hover {
-    transform: scale(1.1);
-    
+.profile-info {
+    margin-top: 15px;
+}
+.stars {
+    font-size: 30px;
+    color: #f8a11f;
 }
 
 /* Card Hover Effect */
@@ -209,6 +212,10 @@ body {
     background-color: #ffffff;
     padding:20px;
     margin:15px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;;
 }
 
 .reviews{
@@ -270,6 +277,10 @@ body {
     cursor: pointer;
 }
 
+.all-photos-container {
+    position: relative;
+}
+
 .overlay {
     position: absolute;
     bottom: 0;
@@ -280,6 +291,7 @@ body {
     font-size: 12px;
     cursor: pointer;
     border-bottom-right-radius: 5px;
+    z-index: 10;
 }
 
 /* Modal Background */
@@ -344,4 +356,40 @@ body {
     display: flex;
     justify-content: center; /* Centers the buttons horizontally /
     gap: 10px; / Adds spacing between buttons */
+}
+
+.update-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-custom {
+    background: linear-gradient(145deg, #3a3a3a, #1a1a1a);
+    color: #f8e7c0 !important;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition: 0.3s;
+    height: 40px;
+}
+.btn-custom:hover {
+    background: #f8a11f !important;
+    color: #1a1a1a !important;
+}
+
+footer {
+    background: rgba(92, 50, 37, 0.8); /* Match navbar color */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+.card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit text to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-width: 100%; /* Ensure it fits within the container */
 }

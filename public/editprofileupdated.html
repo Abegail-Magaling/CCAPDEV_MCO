@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KarFind - Update Profile</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container nav-container">
+            <img src="img/karfind.png" class="logo">
+            <a class="navbar-brand nunito-font" href="/index.html">KarFind</a>
+                
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse d-flex justify-content-between nunito-font" id="navbarNav">
+                <ul class="navbar-nav ">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="eateries.html">Discover Eateries</a></li>
+                    <li class="nav-item"><a class="nav-link" href="addRestaurant.html">Add Restaurant</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li> -->
+                </ul>
+    
+                <a href="profileUpdated.html" class=" login-link"><i class="fa-solid fa-circle-user fa-2x"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container pt-10 roboto-font">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="update-form">
+                    <h3 class="text-center">Update Profile</h3>
+                    <form id="edit-profile-form">
+                        <div class="mb-3">
+                            <label for="profileImage" class="file-label">Change Profile Image</label>
+                            <input type="file" class="form-control mt-2" id="profilePicture" accept="image/*">
+                        </div>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="user-name" value="@foodie123">
+                        </div>
+                        <!-- <div class="mb-3">
+                            <label for="bio" class="form-label">Bio</label>
+                            <textarea class="form-control" id="bio" rows="3">Foodie exploring the best carinderias!</textarea>
+                        </div> -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" value="foodie123@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">New Password</label>
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-custom">Save Changes</button>
+                            <a href="profileUpdated.html" class="btn btn-custom">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/profileScript.js"></script>
+</body>
+</html>
