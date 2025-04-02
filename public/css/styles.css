@@ -381,3 +381,11 @@ footer {
     padding: 15px 0;
     margin-top: auto; /* Pushes the footer to the bottom */
 }
+
+.card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit text to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-width: 100%; /* Ensure it fits within the container */
+}

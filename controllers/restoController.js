@@ -1,6 +1,45 @@
 const Restaurants = require("../models/restos");
 const Review = require("../models/reviews");
 
+const isAdmin = (req, res, next) => {
+    if(!req.session.user || req.session.user.userType !== "admin"){
+        return res.status(403).json({error: "Access denied, admins only!"});
+    }
+    next();
+};
+
+const addRestaurant = async (req, res) => {
+    try{
+        const { name, 
+                description, 
+                address, 
+                contact, 
+                googleMap, 
+                cuisine} = req.body;
+
+        const coverPage = req.files.coverPage ? req.files.coverPage[0].path : null;;
+        const restoPhotos = req.files.restoPhotos ? req.files.restoPhotos.map(file => file.path) : [];
+
+        const newRestaurant = new Restaurants({
+            name,
+            description,
+            address,
+            contact,
+            googleMap,
+            cuisine,
+            coverPage,
+            restoPhotos,
+        });
+
+        await newRestaurant.save();
+        res.status(201).json({message : "Restaurant added successfully!", restaurant: newRestaurant});
+    }
+    catch (error) {
+        console.error("Error adding restaurant:", error);
+        res.status(500).json({ error: "Server error" });
+    }
+};
+
 const getAllRestaurants = async (req, res) => {
     try {
         const restaurants = await Restaurants.find();
@@ -41,4 +80,4 @@ const getRestaurantsById = async (req, res) => {
 }
 
 
-module.exports = { getAllRestaurants, getRestaurantsById };
+module.exports = { getAllRestaurants, getRestaurantsById, addRestaurant, isAdmin};

@@ -10,6 +10,11 @@ document.addEventListener("DOMContentLoaded", async() => {
         console.log("Fetched User Data:", user);
         const userNameElement = document.getElementById("user-name");
 
+        console.log("User type of user: ", user.userType);
+        if(user.userType !== "admin"){
+            document.getElementById("addRestaurantLink").style.display = "none";
+        }
+
         if (userNameElement && user.name) {
             userNameElement.textContent = user.name;
         } 

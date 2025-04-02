@@ -29,6 +29,7 @@ app.use("/api", reviewRoutes);
 app.use("/", restoRoutes);
 app.use("/", authRoutes);
 app.use(express.static(path.join(__dirname, "public")));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const port = 3000;
 app.listen(port, () => {

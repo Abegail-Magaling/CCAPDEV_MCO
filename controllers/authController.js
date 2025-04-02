@@ -37,7 +37,8 @@ const login = async(req, res) => {
             _id : check._id.toString(),
             name : check.name, 
             email: check.email,
-            password: check.password};
+            password: check.password,
+            userType: check.userType};
         res.redirect("/profile");
         //res.redirect("/eateries");
 

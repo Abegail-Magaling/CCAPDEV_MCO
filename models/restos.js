@@ -9,7 +9,6 @@ const RestoSchema = new Schema({
     },
     rating: {
         type: SchemaTypes.Number,
-        required: true,
         min: 1,
         max: 5
     },
@@ -27,7 +26,6 @@ const RestoSchema = new Schema({
     },
     googleMap: {
         type: SchemaTypes.String,
-        required: true
     },
     cuisine: {
         type: SchemaTypes.String,
